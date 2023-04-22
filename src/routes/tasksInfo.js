@@ -53,7 +53,6 @@ tasksRoutes.get("/", (req, res) => {
     for (const [key, value] of Object.entries(taskData.task)) {
       if (value.isComplete.toString() === req.query.isComplete) {
         filtered[key] = value;
-        console.log("macthed");
       }
     }
     res.status(200);
@@ -69,6 +68,16 @@ tasksRoutes.get("/:taskId", getTaskById, (req, res) => {
   res.send(req.task);
 });
 
+tasksRoutes.get("/priority/:level", (req, res) => {
+  const filtered = {};
+  for (const [key, value] of Object.entries(taskData.task)) {
+    if (value.priority && value.priority === req.params.level) {
+      filtered[key] = value;
+    }
+  }
+  res.status(200);
+  res.send(filtered);
+});
 tasksRoutes.delete("/:taskId", getTaskById, (req, res) => {
   const taskDataModified = JSON.parse(JSON.stringify(taskData));
   delete taskDataModified.task[req.params.taskId];
