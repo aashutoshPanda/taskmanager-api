@@ -29,6 +29,48 @@
 			"response": []
 		},
 		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/a2ebbd1e22e80ddc190ca6ee8fa2bf6693d38a74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"a2ebbd1e22e80ddc190ca6ee8fa2bf6693d38a74"
+					]
+				},
+				"description": "Retrieve all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/:id Copy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/79afc2b4d46bbcb830769d439356050f9dba01fb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"79afc2b4d46bbcb830769d439356050f9dba01fb"
+					]
+				},
+				"description": "Retrieve all tasks."
+			},
+			"response": []
+		},
+		{
 			"name": "tasks/",
 			"request": {
 				"method": "GET",

@@ -15,9 +15,10 @@ tasksRoutes.post("/", (req, res) => {
   const taskDetails = req.body;
   const validationResult = validator.validateTaskInfo(taskDetails, taskData);
   if (validationResult.status) {
-    const taskDetailsWithId = { id: getId(), taskDetails };
+    const id = getId();
     const taskDataModified = JSON.parse(JSON.stringify(taskData));
-    taskDataModified.task.push(taskDetailsWithId);
+    taskDataModified.task[id] = taskDetails;
+    const taskDetailsWithId = { id, ...taskDetails };
     fs.writeFileSync(WRITE_PATH, JSON.stringify(taskDataModified), {
       encoding: "utf8",
       flag: "w",
@@ -33,13 +34,12 @@ tasksRoutes.post("/", (req, res) => {
 function getTaskById(req, res, next) {
   const id = req.params.id;
   try {
-    const retrievedTask = taskData.task;
-    const taskIdPassed = req.params.taskId;
-    const taskList = retrievedTask.filter((val) => val.id == taskIdPassed);
-    if (taskList.length === 0) {
+    const retrievedTaskDict = taskData.task;
+    const taskId = req.params.taskId;
+    if (!retrievedTaskDict.hasOwnProperty(taskId)) {
       return res.status(404).json({ message: "Cannot find task" });
     }
-    req.task = taskList[0];
+    req.task = retrievedTaskDict[taskId];
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }
@@ -58,18 +58,32 @@ tasksRoutes.get("/:taskId", getTaskById, (req, res) => {
 
 tasksRoutes.delete("/:taskId", getTaskById, (req, res) => {
   const taskDataModified = JSON.parse(JSON.stringify(taskData));
-  console.log(taskDataModified);
-  const filteredTasks = taskDataModified.task.filter(
-    (val) => val.id !== req.task.id
-  );
-  taskDataModified.task = filteredTasks;
+  delete taskDataModified.task[req.params.taskId];
   fs.writeFileSync(WRITE_PATH, JSON.stringify(taskDataModified), {
     encoding: "utf8",
     flag: "w",
   });
 
   res.status(200);
-  res.send(filteredTasks);
+  res.send(taskDataModified);
 });
 
+tasksRoutes.put("/:taskId", getTaskById, (req, res) => {
+  const validationResult = validator.validateTaskInfo(req.body, taskData);
+  if (validationResult.status) {
+    const taskDataModified = JSON.parse(JSON.stringify(taskData));
+    const newTaskDetails = { ...req.task, ...req.body };
+    taskDataModified.task[req.params.taskId] = newTaskDetails;
+    const newTaskDetailsWithId = { id: req.params.taskId, ...newTaskDetails };
+    fs.writeFileSync(WRITE_PATH, JSON.stringify(taskDataModified), {
+      encoding: "utf8",
+      flag: "w",
+    });
+    res.status(200);
+    res.json(newTaskDetailsWithId);
+  } else {
+    res.status(400);
+    res.json(validationResult);
+  }
+});
 module.exports = tasksRoutes;
