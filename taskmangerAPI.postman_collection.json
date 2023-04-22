@@ -8,6 +8,27 @@
 	},
 	"item": [
 		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/a2ebbd1e22e80ddc190ca6ee8fa2bf6693d38a74",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"a2ebbd1e22e80ddc190ca6ee8fa2bf6693d38a74"
+					]
+				},
+				"description": "Retrieve all tasks."
+			},
+			"response": []
+		},
+		{
 			"name": "tasks/",
 			"request": {
 				"method": "GET",
@@ -35,7 +56,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"title\": \"Complete basic vim macros exercise\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": true\n}",
+					"raw": "{\n    \"title\": \"Complete vim exercise\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": true\n}",
 					"options": {
 						"raw": {
 							"language": "json"
