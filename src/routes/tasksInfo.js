@@ -91,7 +91,7 @@ tasksRoutes.delete("/:taskId", getTaskById, (req, res) => {
 });
 
 tasksRoutes.put("/:taskId", getTaskById, (req, res) => {
-  const validationResult = validator.validateTaskInfo(req.body, taskData);
+  const validationResult = validator.validateTaskInfoUpdate(req.body, taskData);
   if (validationResult.status) {
     const taskDataModified = JSON.parse(JSON.stringify(taskData));
     const newTaskDetails = { ...req.task, ...req.body };

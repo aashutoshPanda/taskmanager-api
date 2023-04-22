@@ -28,6 +28,47 @@ class validator {
     }
     return {
       status: false,
+      message: "task info is malformed",
+    };
+  }
+
+  static validateTaskInfoUpdate(taskInfo, taskData) {
+    if (taskInfo.title) {
+      if (!taskInfo.title === "string") {
+        return {
+          status: false,
+          message: "title should be a string",
+        };
+      }
+    }
+    if (taskInfo.description) {
+      if (!taskInfo.description === "string") {
+        return {
+          status: false,
+          message: "description should be a string",
+        };
+      }
+    }
+    if (taskInfo.isComplete) {
+      if (!taskInfo.isComplete === "boolean") {
+        return {
+          status: false,
+          message: "isComplete should be a boolean",
+        };
+      }
+    }
+
+    if (taskInfo.priority) {
+      if (!this.validatePriority(taskInfo)) {
+        return {
+          status: true,
+          message: "Provided priority is invalid",
+        };
+      }
+    }
+
+    return {
+      status: true,
       message: "task info is malformed please provide all the properties",
     };
   }

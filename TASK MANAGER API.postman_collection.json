@@ -1,0 +1,619 @@
+{
+	"info": {
+		"_postman_id": "2a137422-e26c-4f18-a91c-0c7f774a71b5",
+		"name": "TASK MANAGER API",
+		"description": "The API will allow users to perform CRUD operations (Create, Read, Update, and Delete) on tasks. The tasks should have a title, description, and a flag for completion status.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7984450"
+	},
+	"item": [
+		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/d47ea639fe701ab55092cc1b8a9bcbd726bb2234",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"d47ea639fe701ab55092cc1b8a9bcbd726bb2234"
+					]
+				},
+				"description": "Retrieve task by id."
+			},
+			"response": [
+				{
+					"name": "tasks/:id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks/d47ea639fe701ab55092cc1b8a9bcbd726bb2234",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"d47ea639fe701ab55092cc1b8a9bcbd726bb2234"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "145"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"91-k0v+KhhC6xFMGiU5FJfOkRTGWcA\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 03:56:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"title\": \"Complete vim exercise 4\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": true,\n    \"priority\": \"MEDIUM\",\n    \"createdOn\": \"2023-04-22T03:52:58.138Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "tasks/:level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/priority/HIGH",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"priority",
+						"HIGH"
+					]
+				},
+				"description": "Retrieve tasks by priority."
+			},
+			"response": [
+				{
+					"name": "tasks/:level",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks/priority/HIGH",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"priority",
+								"HIGH"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "376"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"178-JyIx5sS064UiZ8hX83aO+fk/z9s\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 03:55:46 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"a44d39e91e312595d22836147d8ffe8b81f672e7\": {\n        \"title\": \"Complete vim exercise 1\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": false,\n        \"priority\": \"HIGH\",\n        \"createdOn\": \"2023-04-22T03:52:34.683Z\"\n    },\n    \"a7dab67263eebb8bc66205503ca756bf4bc936cb\": {\n        \"title\": \"Complete vim exercise 2\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"HIGH\",\n        \"createdOn\": \"2023-04-22T03:52:42.925Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "tasks/?isComplete=true",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/?isComplete=true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						""
+					],
+					"query": [
+						{
+							"key": "isComplete",
+							"value": "true"
+						}
+					]
+				},
+				"description": "Filter tasks based on completion status."
+			},
+			"response": [
+				{
+					"name": "tasks/?isComplete=true",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks/?isComplete=true",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								""
+							],
+							"query": [
+								{
+									"key": "isComplete",
+									"value": "true"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "563"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"233-durXXudOeuHebA7tJbB1G8u95Eg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 03:55:42 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"a7dab67263eebb8bc66205503ca756bf4bc936cb\": {\n        \"title\": \"Complete vim exercise 2\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"HIGH\",\n        \"createdOn\": \"2023-04-22T03:52:42.925Z\"\n    },\n    \"67c66d31ca542b5747c5722667cf920718c3611f\": {\n        \"title\": \"Complete vim exercise 3\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"LOW\",\n        \"createdOn\": \"2023-04-22T03:52:49.297Z\"\n    },\n    \"d47ea639fe701ab55092cc1b8a9bcbd726bb2234\": {\n        \"title\": \"Complete vim exercise 4\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"MEDIUM\",\n        \"createdOn\": \"2023-04-22T03:52:58.138Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/fbc3e0e2db92af6c8f10f41798d7d448b4fc3653",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"fbc3e0e2db92af6c8f10f41798d7d448b4fc3653"
+					]
+				},
+				"description": "Delete task by id."
+			},
+			"response": [
+				{
+					"name": "tasks/:id",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks/fbc3e0e2db92af6c8f10f41798d7d448b4fc3653",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"fbc3e0e2db92af6c8f10f41798d7d448b4fc3653"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "760"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2f8-D6KiVlOqEOIiRBOE4TFJBZibkVw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 03:55:30 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"task\": {\n        \"a44d39e91e312595d22836147d8ffe8b81f672e7\": {\n            \"title\": \"Complete vim exercise 1\",\n            \"description\": \"self-explanatory\",\n            \"isComplete\": false,\n            \"priority\": \"HIGH\",\n            \"createdOn\": \"2023-04-22T03:52:34.683Z\"\n        },\n        \"a7dab67263eebb8bc66205503ca756bf4bc936cb\": {\n            \"title\": \"Complete vim exercise 2\",\n            \"description\": \"self-explanatory\",\n            \"isComplete\": true,\n            \"priority\": \"HIGH\",\n            \"createdOn\": \"2023-04-22T03:52:42.925Z\"\n        },\n        \"67c66d31ca542b5747c5722667cf920718c3611f\": {\n            \"title\": \"Complete vim exercise 3\",\n            \"description\": \"self-explanatory\",\n            \"isComplete\": true,\n            \"priority\": \"LOW\",\n            \"createdOn\": \"2023-04-22T03:52:49.297Z\"\n        },\n        \"d47ea639fe701ab55092cc1b8a9bcbd726bb2234\": {\n            \"title\": \"Complete vim exercise 4\",\n            \"description\": \"self-explanatory\",\n            \"isComplete\": true,\n            \"priority\": \"MEDIUM\",\n            \"createdOn\": \"2023-04-22T03:52:58.138Z\"\n        }\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "tasks/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Complete vim exercise updated\",\n    \"isComplete\": true,\n    \"priority\": \"HIGH\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks/a7dab67263eebb8bc66205503ca756bf4bc936cb",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						"a7dab67263eebb8bc66205503ca756bf4bc936cb"
+					]
+				},
+				"description": "Update task by id."
+			},
+			"response": [
+				{
+					"name": "tasks/:id",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Complete vim exercise updated\",\n    \"isComplete\": true,\n    \"priority\": \"HIGH\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/a7dab67263eebb8bc66205503ca756bf4bc936cb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								"a7dab67263eebb8bc66205503ca756bf4bc936cb"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "197"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c5-rMzjbLUKdlaopisCrL0XqSxVCdw\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 04:12:45 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"a7dab67263eebb8bc66205503ca756bf4bc936cb\",\n    \"title\": \"Complete vim exercise updated\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": true,\n    \"priority\": \"HIGH\",\n    \"createdOn\": \"2023-04-22T03:52:42.925Z\"\n}"
+				}
+			]
+		},
+		{
+			"name": "tasks/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks"
+					]
+				},
+				"description": "Retrieve all tasks."
+			},
+			"response": [
+				{
+					"name": "tasks/",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "751"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2ef-HYLTJHYeE86JoNpxfmBOZvrCB0M\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 04:12:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"a44d39e91e312595d22836147d8ffe8b81f672e7\": {\n        \"title\": \"Complete vim exercise 1\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": false,\n        \"priority\": \"HIGH\",\n        \"createdOn\": \"2023-04-22T03:52:34.683Z\"\n    },\n    \"a7dab67263eebb8bc66205503ca756bf4bc936cb\": {\n        \"title\": \"Complete vim exercise 2\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"HIGH\",\n        \"createdOn\": \"2023-04-22T03:52:42.925Z\"\n    },\n    \"67c66d31ca542b5747c5722667cf920718c3611f\": {\n        \"title\": \"Complete vim exercise 3\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"LOW\",\n        \"createdOn\": \"2023-04-22T03:52:49.297Z\"\n    },\n    \"d47ea639fe701ab55092cc1b8a9bcbd726bb2234\": {\n        \"title\": \"Complete vim exercise 4\",\n        \"description\": \"self-explanatory\",\n        \"isComplete\": true,\n        \"priority\": \"MEDIUM\",\n        \"createdOn\": \"2023-04-22T03:52:58.138Z\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "tasks/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Complete vim exercise 5\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": false,\n    \"priority\": \"MEDIUM\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						""
+					]
+				},
+				"description": "Create a new task."
+			},
+			"response": [
+				{
+					"name": "tasks/",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Complete vim exercise 5\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": false,\n    \"priority\": \"MEDIUM\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/tasks/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"tasks",
+								""
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "194"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"c2-srauDDiB8UwlDDChFSzTTIPBNHI\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 22 Apr 2023 03:53:04 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"id\": \"fbc3e0e2db92af6c8f10f41798d7d448b4fc3653\",\n    \"title\": \"Complete vim exercise 5\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": false,\n    \"priority\": \"MEDIUM\",\n    \"createdOn\": \"2023-04-22T03:53:04.676Z\"\n}"
+				}
+			]
+		}
+	]
+}
