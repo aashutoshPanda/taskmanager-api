@@ -12,10 +12,11 @@ tasksRoutes.use(bodyParser.json());
 const WRITE_PATH = path.join(__dirname, "..", "tasks.json");
 
 tasksRoutes.post("/", (req, res) => {
-  const taskDetails = req.body;
+  let taskDetails = req.body;
   const validationResult = validator.validateTaskInfo(taskDetails, taskData);
   if (validationResult.status) {
     const id = getId();
+    taskDetails = { ...taskDetails, createdOn: new Date().toISOString() };
     const taskDataModified = JSON.parse(JSON.stringify(taskData));
     taskDataModified.task[id] = taskDetails;
     const taskDetailsWithId = { id, ...taskDetails };
