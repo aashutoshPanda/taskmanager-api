@@ -1,22 +1,11 @@
-# taskmanager-api
-
-## Installation
-
-```shell
-npm i
-```
-
-## Run the server
-
-```shell
-npm start
-```
+# TASK MANAGER API
 
 ## API docs
 
 Postman doc - [ link ](https://documenter.getpostman.com/view/7984450/2s93Y3wMNx)
+![POSTMAN](doc-assets/postman.png)
 
-## Breif
+## Brief
 
 The API will allow users to perform CRUD operations (Create, Read, Update, and Delete) on tasks. The tasks should have a title, description, and a flag for completion status.
 
@@ -42,4 +31,16 @@ Implement filtering and sorting for the GET /tasks endpoint. For example, users 
 Allow users to assign a priority level (e.g., low, medium, high) to each task. Update the API to support this new attribute in task creation, updates, and retrieval.
 
 Implement an endpoint to retrieve tasks based on priority level: GET /tasks/priority/:level.
+```
+
+## Installation
+
+```shell
+npm i
+```
+
+## Run the server
+
+```shell
+npm start
 ```
