@@ -87,7 +87,7 @@ tasksRoutes.delete("/:taskId", getTaskById, (req, res) => {
   });
 
   res.status(200);
-  res.send(taskDataModified);
+  res.send(taskDataModified.task);
 });
 
 tasksRoutes.put("/:taskId", getTaskById, (req, res) => {
