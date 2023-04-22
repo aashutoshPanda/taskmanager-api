@@ -48,8 +48,20 @@ function getTaskById(req, res, next) {
 }
 
 tasksRoutes.get("/", (req, res) => {
-  res.status(200);
-  res.send(taskData);
+  if (req.query.hasOwnProperty("isComplete")) {
+    const filtered = {};
+    for (const [key, value] of Object.entries(taskData.task)) {
+      if (value.isComplete.toString() === req.query.isComplete) {
+        filtered[key] = value;
+        console.log("macthed");
+      }
+    }
+    res.status(200);
+    res.send(filtered);
+  } else {
+    res.status(200);
+    res.send(taskData.task);
+  }
 });
 
 tasksRoutes.get("/:taskId", getTaskById, (req, res) => {
