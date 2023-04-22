@@ -1,0 +1,62 @@
+{
+	"info": {
+		"_postman_id": "2a137422-e26c-4f18-a91c-0c7f774a71b5",
+		"name": "taskmangerAPI",
+		"description": "The API will allow users to perform CRUD operations (Create, Read, Update, and Delete) on tasks. The tasks should have a title, description, and a flag for completion status.  \n\nRESTful API with the following endpoints:\n\n- **GET /tasks**: Retrieve all tasks.\n- **GET /tasks/:id**: Retrieve a single task by its ID.\n- **POST /tasks**: Create a new task.\n- **PUT /tasks/:id**: Update an existing task by its ID.\n- **DELETE /tasks/:id**: Delete a task by its ID.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7984450"
+	},
+	"item": [
+		{
+			"name": "tasks/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						""
+					]
+				},
+				"description": "Retrieve all tasks."
+			},
+			"response": []
+		},
+		{
+			"name": "tasks/",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"Complete basic vim macros exercise\",\n    \"description\": \"self-explanatory\",\n    \"isComplete\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/tasks/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"tasks",
+						""
+					]
+				},
+				"description": "Create a new task."
+			},
+			"response": []
+		}
+	]
+}
